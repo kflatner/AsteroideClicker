@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoclickplay</title>
+    <link rel="script" href="game.js">
+    <link rel="stylesheet" href="game.css">
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="score" style="grid-area: cellA; background-color: rgb(226, 125, 9); 
+        border: solid black;">
+            <h2>Score: <br> <span id="score-value">0</span></h2>
+            <h2>Level:1</h2>
+        </div>
+
+        <div id="center-screen" style="grid-area: cellB; ;">
+            
+            <button id="asteroide" onClick="clicker()">Click!</button>
+        </div>
+
+
+        
+
+       
+
+        <div id="upgradeHouse" >
+            Upgrades 
+            <div id="clickerUpgradeDisplay"><img src="img/miner.webp" alt="Miner Logo" width="50" height="50"> = 0</div> 
+            <div id="drillerUpgradeDisplay"><img src="/img/driller.webp" alt="Miner Logo" width="50" height="50">= 0</div>    
+            <div id="shipUpgradeDisplay"><img src="/img/spaceminer.webp" alt="miner logo" widt="50" height="50">=0 </div>    
+            <div id="spaceSchoolUpgradeDisplay"> <img src="/img/spaceschool.webp" alt="miner logo" widt="50" height="50">= 0</div>    
+            <div id="spaceBarUpgradeDisplay"> <img src="/img/spacebar.webp" alt="miner logo" widt="50" height="50">= 0</div>    
+            <div id="spaceFarmUpgradeDisplay"> <img src="/img/spacefarm.webp" alt="miner logo" widt="50" height="50">= 0</div>    
+            <div id="spaceFactoryUpgradeDisplay"> <img src="/img/spacefactory.webp" alt="miner logo" widt="50" height="50">= 0</div>    
+        </div>
+        
+
+
+
+
+        <div id="upgrades" style="grid-area: cellC; background-color: rgb(226, 125, 9); border: solid black;">
+            <h2>Upgrades</h2>
+            <button id="upgradeButton" onClick="buyUpgradeClicker()"></button>
+            <button id="upgradeButtonTwo" onClick="buyUpgradeDriller()"></button>
+            <button id="upgradeButtonThree" onClick="buyUpgradeShipMine()"></button>
+            <button onClick="buyUpgrade(10, 100)">SpaceGuard (Cost: 100)</button>
+        </div>
+
+        <div id="topMenu"> 
+            <h2> Asteroide Clickker 3000!</h2>
+        </div> 
+        
+        <div id="bottomMenu"  > 
+            <button id="buyFarmButton" onmouseover="showInfo('Buy Space Farm - Cost: 2000')"
+            onmouseout="hideInfo()" 
+             onClick="buySpaceFarm()" style="justify-self: left;">Buy SpaceFarm</button>
+            <button id="buyBarButton" onClick="buySpaceBar()" style="justify-self: left;">Buy SpaceBar</button>
+            <button id="buyFactoryButton" onClick="buySpaceFactory()" style="justify-self: left;">Buy SpaceFactory</button>
+            <button id="buySchoolButton" onClick="buySpaceSchool()" style="justify-self: left;">Buy SpaceSchool</button>
+        </div>
+        <div id="infoBox" style="min-height: 150px; width: 300px; background-color: rgba(128, 128, 128, 0.5); color: lightgray; justify-self: end; padding: 15px; margin-top: 10px; grid-area: cellG;" >
+             </div>
+            
+
+         
+            
+       
+            
+            <div id="minorUpgrades" style="grid-area: cellF; background-color: rgb(226, 125, 9); border: solid black; padding: 10px;">
+                <h2>Minor Upgrades</h2> 
+                
+                <div><button onClick="minerMinorUpgrades()">Miner</button><br>
+                    <button onClick="drillerMinorUpgrades()">Driller</button> <br>
+                    <button onClick="spaceshipMinorUpgrades()">SpaceShip</button><br> 
+                    <button onClick="MinorBack()">Back</button> 
+                </div> 
+            
+                    
+                    
+               
+                    
+                <div id="MinorUpgradeTable" style="min-height: 150px; background-color: rgba(128, 128, 128, 0.5); color: lightgray; padding: 15px; margin-top: 10px;">
+                    No upgrades selected.
+                </div>
+                
+            
+             </div>
+           
+           
+        
+    </div>
+
+     
+    <script>
+        function showInfo(text) {
+    document.getElementById("infoBox").innerText = text;
+}
+
+function hideInfo() {
+    document.getElementById("infoBox").innerText = "Hover over an upgrade to see details.";
+}
+
+
+
+
+
+
+
+
+let clickCount = 0;
+let multiplier = 1;
+let upgradeCostClicker = 20;
+let upgradeCostDriller = 100;
+let upgradeCostsSpaceship = 500;
+let upgradeMultiplier = 2;
+let upgradesBought= 0;
+let upgradesBoughtTwo= 0;
+let upgradesBoughtThree= 0;
+let upgradeCostFactory=2000;
+let upgradesBoughtFactory=0;
+let upgradeCostSchool=2000;
+let upgradesBoughtSchool=0;
+let upgradeCostFarm=2000;
+let upgradesBoughtFarm=0;
+let upgradeCostBar=2000;
+let upgradesBoughtBar=0;
+
+
+function clicker() {
+    clickCount += multiplier;
+    updateScore();
+}
+
+function buyUpgradeClicker() {
+if (clickCount >= upgradeCostClicker) {
+clickCount -= upgradeCostClicker;
+upgradeCostClicker = Math.ceil(upgradeCostClicker * upgradeMultiplier); 
+upgradesBought++;
+
+
+
+setInterval(() => {
+    ++clickCount;
+    updateScore();
+}, 2000);
+
+updateUI();
+}
+}
+
+function buyUpgradeDriller(){
+    if (clickCount >= upgradeCostDriller) {
+clickCount -= upgradeCostDriller;
+upgradeCostDriller = Math.ceil(upgradeCostDriller * upgradeMultiplier); 
+upgradesBoughtTwo++;
+
+
+
+setInterval(() => {
+    ++clickCount;
+    updateScore();
+}, 1500);
+
+updateUI();
+}
+}
+function buyUpgradeShipMine() {
+if (clickCount >= upgradeCostsSpaceship) {
+clickCount -= upgradeCostsSpaceship;
+upgradeCostsSpaceship = Math.ceil(upgradeCostsSpaceship * upgradeMultiplier); 
+upgradesBoughtThree++;
+
+
+
+setInterval(() => {
+    ++clickCount;
+    updateScore();
+}, 500);
+
+updateUI();
+}
+}
+
+
+function updateUI() {
+document.getElementById("upgradeButton").innerText = `Miner     Cost: ${upgradeCostClicker}`;
+document.getElementById("upgradeButtonTwo").innerText = `Machine Driller    Cost: ${upgradeCostDriller}`;
+document.getElementById("upgradeButtonThree").innerText = `SpaceShip Driller    Cost: ${upgradeCostsSpaceship}`;
+document.getElementById("buyFactoryButton").innerText = ` Buy SpaceFactory  : ${upgradeCostFactory}`;
+document.getElementById("buyFarmButton").innerText = ` Buy SpaceFarm  : ${upgradeCostFarm}`;
+document.getElementById("buyBarButton").innerText = ` Buy SpaceBar  : ${upgradeCostBar}`;
+document.getElementById("buySchoolButton").innerText = ` Buy SpaceSchool  : ${upgradeCostSchool}`;
+document.getElementById("clickerUpgradeDisplay").innerHTML = `<img src="img/miner.webp" alt="Miner Logo" width="50" height="50">= ${upgradesBought}`;
+document.getElementById("drillerUpgradeDisplay").innerHTML = `<img src="img/driller.webp" alt="Miner Logo" width="50" height="50">= ${upgradesBoughtTwo}`;
+document.getElementById("shipUpgradeDisplay").innerHTML = `<img src="img/spaceminer.webp" alt="Miner Logo" width="50" height="50">= ${upgradesBoughtThree}`;
+document.getElementById("spaceFactoryUpgradeDisplay").innerHTML = `<img src="img/spaceFactory.webp" alt="Miner Logo" width="50" height="50">=LvL ${upgradesBoughtFactory}`;
+document.getElementById("spaceBarUpgradeDisplay").innerHTML = `<img src="img/spacebar.webp" alt="Miner Logo" width="50" height="50">=LvL ${upgradesBoughtBar}`;
+document.getElementById("spaceSchoolUpgradeDisplay").innerHTML = `<img src="img/spaceschool.webp" alt="Miner Logo" width="50" height="50">=LvL ${upgradesBoughtSchool}`;
+document.getElementById("spaceFarmUpgradeDisplay").innerHTML = `<img src="img/spacefarm.webp" alt="Miner Logo" width="50" height="50">=LvL ${upgradesBoughtFarm}`;
+document.getElementById("score-value").textContent = clickCount;
+}
+
+
+updateUI();
+
+
+
+function buyUpgrade(newMultiplier, cost) {
+    if (clickCount >= cost) {
+        clickCount -= cost;
+        multiplier *= newMultiplier;
+        document.getElementById("upgrade-message").style.display = "block";
+        updateScore();
+    } else {
+        alert("Not enough points to buy this upgrade!");
+    }
+}
+
+function buySpaceFactory(){
+    if (clickCount >= upgradeCostFactory) {
+clickCount -= upgradeCostFactory;
+upgradeCostFactory = Math.ceil(upgradeCostFactory * upgradeMultiplier); 
+upgradesBoughtFactory++;
+
+
+
+setInterval(() => {
+    ++clickCount;
+    updateScore();
+}, 50);
+
+updateUI();
+}
+}
+
+function buySpaceFarm(){
+    if (clickCount >= upgradeCostFarm) {
+clickCount -= upgradeCostFarm;
+upgradeCostFarm = Math.ceil(upgradeCostFarm * upgradeMultiplier); 
+upgradesBoughtFarm++;
+
+
+
+setInterval(() => {
+    ++clickCount;
+    updateScore();
+}, 50);
+
+updateUI();
+}
+}
+
+function buySpaceSchool(){
+    if (clickCount >= upgradeCostSchool) {
+clickCount -= upgradeCostSchool;
+upgradeCostSchool = Math.ceil(upgradeCostSchool * upgradeMultiplier); 
+upgradesBoughtSchool++;
+
+
+
+setInterval(() => {
+    ++clickCount;
+    updateScore();
+}, 50);
+
+updateUI();
+}
+}
+
+function buySpaceBar(){
+    if (clickCount >= upgradeCostBar) {
+clickCount -= upgradeCostBar;
+upgradeCostBar = Math.ceil(upgradeCostBar * upgradeMultiplier); 
+upgradesBoughtBar++;
+
+
+
+setInterval(() => {
+    ++clickCount;
+    updateScore();
+}, 50);
+
+updateUI();
+}
+}
+
+
+function updateScore() {
+    document.getElementById("score-value").textContent = clickCount;
+}
+
+function clickerUpgradesBought() {
+    return upgradesBought; //
+}
+function clickerUpgradesBoughtTwo() {
+    return upgradesBoughtTwo; //
+}
+function  noe(){
+return upgradesBoughtFactory;
+}
+
+function showSkillTree(skillType) {
+        let skillTreeDiv = document.getElementById("mineSkillTree");
+}
+
+function MinorBack(){
+    document.getElementById('MinorUpgradeTable').innerHTML = /*HTML*/ `
+    No upgrades selected.
+    `;
+    
+}
+    
+function minerMinorUpgrades(){
+    document.getElementById('MinorUpgradeTable').innerHTML = /*HTML*/`
+    <button onmouseover="showInfo('Mining speed increased!')" 
+    onmouseout="hideInfo()"> "Faster Mining"</button>
+    <button onmouseover="showInfo('Better ore Yield!')" 
+    onmouseout="hideInfo()"> "Better Ore Yield"</button>
+    <button> PH</button> <br>
+    <button> PH</button><br>
+    <button> PH</button><br>
+    <button> PH</button><br>
+    `;
+}
+function drillerMinorUpgrades(){
+    document.getElementById('MinorUpgradeTable').innerHTML = /*HTML*/`
+    <button onmouseover="showInfo('Drilling speed boosted!')" 
+    onmouseout="hideInfo()"> "Drill Efficiency</button>
+    <button onmouseover="showInfo('Drill durability increased!')" 
+    onmouseout="hideInfo()"> "Durable Drill"</button><br>
+    <button> PH</button> <br>
+    <button> PH</button><br>
+    <button> PH</button><br>
+    <button> PH</button><br>
+    `;
+}
+function spaceshipMinorUpgrades(){
+    document.getElementById('MinorUpgradeTable').innerHTML = /*HTML*/`
+    <button onmouseover="showInfo('Fuel consumption reduced!')" 
+    onmouseout="hideInfo()"> "Fuel Efficiency"</button>
+    <button> PH</button> <br>
+    <button> PH</button><br>
+    <button> PH</button><br>
+    <button> PH</button><br>
+    <button> PH</button><br>
+    `;
+}
+
+     
+    </script>
+</body>
+
+</html>

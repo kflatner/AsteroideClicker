@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url(/img/menu.png);
+            background-repeat: no-repeat;
+            background: size 100%;
+            background-position: center;
+            align-items: center; /* Sentraliser innholdet vertikalt */
+            justify-content: center; /* Sentraliser innholdet horisontalt */
+           
+        }
+        .container {
+            height:100vh;
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            grid-template-areas: 
+            'cellA cellB  cellB cellB cellC'
+            
+            ;
+        }
+     
+    
+            button {
+            padding: 20px 30px;
+            margin: 10px;
+            font-size: 22px;
+            cursor: pointer;
+          
+        }
+    
+        .container > div {
+            text-align: center;
+           
+    
+
+        }
+        #center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+           
+           
+          
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="grid-area: cellA; background-color: rgb(226, 125, 9); border: solid black;"> <h2>  <h2>  </div>
+        <div id="center-screen" style="grid-area: cellB; ;" > <button>Highscores</button> 
+            <a href="playgame.html">
+                <button>Play</button>
+            </a>
+         
+
+        
+          <button>Upgrades</button>
+            
+          </div>
+    
+        <div style="grid-area: cellC; background-color: rgb(226, 125, 9); border: solid black;"><h2></h2></div>
+      </div>
+
+      <div class="menu" style="grid-area: CellB;">
+       
+       
+</body>
+</html>
+          
+            
+       
+            
+            
+     
+        
+            
+       
+      
+       
+        
+
