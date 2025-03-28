@@ -55,7 +55,7 @@ upgrades: [
     id:5,
     name: 'SpaceFarm',
     cost:2,
-    interval: 500,
+    interval: 1000,
     multiplier: 3,
     level:0,
     image: '/img/spacefarm.png'
@@ -64,7 +64,7 @@ upgrades: [
     id:6,
     name: 'SpaceBar',
     cost:2,
-    interval: 1250,
+    interval: 750,
     multiplier: 3,
     level:0,
     image: '/img/SpaceBar.png'
@@ -73,7 +73,7 @@ upgrades: [
     id:7,
     name: 'SpaceFactory',
     cost:2,
-    interval: 1250,
+    interval: 500,
     multiplier: 3,
     level:0,
     image: '/img/SpaceFactory.png'
@@ -82,7 +82,7 @@ upgrades: [
     id:8,
     name: 'SpaceSchool',
     cost:2,
-    interval: 1250,
+    interval: 500,
     multiplier: 3,
     level:0,
     image: '/img/SpaceSchool.png'
