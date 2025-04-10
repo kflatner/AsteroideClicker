@@ -22,7 +22,7 @@ upgrades: [
 {
     id: 1,
     name: 'Miner',
-    cost: 2,
+    cost: 20,
     interval: 2000,
     multiplier: 1,
     level:0,
@@ -31,7 +31,7 @@ upgrades: [
 {
     id: 2,
     name: 'Driller',
-    cost: 1,
+    cost: 53,
     interval: 1500,
     multiplier: 2,
     level:0,
@@ -40,7 +40,7 @@ upgrades: [
 {
     id:3,
     name: 'Spaceminer',
-    cost:2,
+    cost:96,
     interval: 1250,
     multiplier: 3,
     level:0,
@@ -48,8 +48,10 @@ upgrades: [
 },
 {
     id:4,
-    name: 'SpaceGuard',
-    cost:2,
+    name: 'SpaceLocation',
+    cost:500,
+    maxLevel: 4,
+    level:0,
 },
 {
     id:5,
@@ -58,7 +60,9 @@ upgrades: [
     interval: 1000,
     multiplier: 3,
     level:0,
-    image: '/img/spacefarm.png'
+    image: '/img/spacefarm.png',
+    unlockTargetId: 'spaceFarm',
+    locked: true  
 },
 {
     id:6,
@@ -67,7 +71,10 @@ upgrades: [
     interval: 750,
     multiplier: 3,
     level:0,
-    image: '/img/SpaceBar.png'
+    image: '/img/SpaceBar.png',
+    unlockTargetId: 'spaceBar' ,
+    locked: true ,
+    requires: [4]
 },
 {
     id:7,
@@ -76,7 +83,9 @@ upgrades: [
     interval: 500,
     multiplier: 3,
     level:0,
-    image: '/img/SpaceFactory.png'
+    image: '/img/SpaceFactory.png',
+    unlockTargetId: 'spaceFactory' ,
+    locked: true 
 },
 {
     id:8,
@@ -85,7 +94,9 @@ upgrades: [
     interval: 500,
     multiplier: 3,
     level:0,
-    image: '/img/SpaceSchool.png'
+    image: '/img/SpaceSchool.png',
+    unlockTargetId: 'spaceSchool' ,
+    locked: true 
 },
 ]
     },

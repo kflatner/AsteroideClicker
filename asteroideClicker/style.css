@@ -1,98 +1,146 @@
-body,html {
-    height:100%;
+/* 🌌 GENERAL RESET & BODY */
+body, html {
+    height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    background-image: url(/img/game.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: url(/img/game.webp) no-repeat center center/cover;
     display: grid;
     align-items: center;
     justify-content: center;
-    font-family: Arial, sans-serif;
-    color: white;
-    
 }
 
+/* 🧱 MAIN GRID LAYOUT */
 .container {
-    margin: 0;
-    padding: 0;;
     display: grid;
     height: 100vh;
     width: 100vw;
-
-    grid-template-columns: 2fr 3fr 3fr 3fr 2fr ;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 2fr 3fr 3fr 3fr 2fr;
     grid-template-rows: 1fr 2fr 2fr 1fr;
-
-
-  
     grid-template-areas:
         "cellA cellE cellE cellE cellC"
         "cellA cellB cellB cellB cellC"
         "cellD cellB cellB cellB cellF"
         "cellD cellG cellG cellG cellF";
-              
-      
 }
 
+/* 💡 BUTTON BASE STYLES */
+button {
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s;
+}
 
 button:active {
     transform: scale(0.9);
 }
 
-
-#upgrades button{
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 15px;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    animation: pulse 2s infinite;
-}
-
-#center-screen button {
-    padding: 20px 30px;
-    margin: 10px;
-    font-size: 45px;
-    cursor: pointer;
-    background-color: rgba(75, 9, 9, 0.7);
-    background-color: rgba(176, 187, 19, 0.7);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    animation: pulse 2s infinite;
-    
-    
-    
-  
-    
-    
-    
-}
-
-button:hover {
+.upgBtn:hover {
     background-color: rgba(214, 98, 3, 0.2);
-    background-color: rgba(255, 255, 0, 0.8); /* Yellow glow */
     box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
 }
 
+button:disabled,
+button.disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #999;
+    cursor: not-allowed;
+    border: 1px solid #555;
+    filter: grayscale(60%);
+}
 
+/* 🚀 CENTER CLICK BUTTON */
+
+
+
+
+/* 💫 ASTEROID BUTTON IMAGE */
+#asteroide {
+    width: 100px;
+    height: 100px;
+    background: url('/img/asteroideclicker.png') no-repeat center center/cover;
+   
+    border: none;
+    cursor: pointer;
+    text-indent: -9999px;
+}
+#asteroide:active {
+    transform: scale(0.92);
+    filter: brightness(0.9);
+}
+#asteroide:hover {
+    transform: scale(2.9); /* Slightly larger on hover */
+    filter: brightness(1.3);
+}
+
+
+
+
+
+
+
+/* 📺 UPGRADE BUTTONS (in UPGRADE AREA) */
+#upgrades button,
+#bottomMenu button {
+    animation: pulse 2s infinite;
+}
+
+/* 🔄 ANIMATIONS */
+
+
+@keyframes glitch {
+    0% { border-color: cyan; }
+    25% { border-color: magenta; }
+    50% { border-color: lime; }
+    75% { border-color: cyan; }
+    100% { border-color: cyan; }
+}
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes pop {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* 🚀 Always pulsing */
+#asteroide {
+    animation: pulse 2s infinite;
+}
+
+/* 💥 Triggered on click */
+#asteroide.clicked {
+    animation: pop 0.2s ease-in-out;
+}
+
+
+
+
+
+/* 📦 GRID AREAS */
 #score {
     grid-area: cellA;
+    background: url(/img/spaceouter.webp) center center/cover;
     background-color: rgb(226, 125, 9);
     border: solid black;
     padding: 5px;
-    background-image: url(/img/spaceouter.webp);
-     background-size:cover;
 }
-span#score-value{
+
+span#score-value {
     border: 3px solid cyan;
     animation: glitch 0.5s infinite alternate;
 }
@@ -103,116 +151,118 @@ span#score-value{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 4px solid cyan; /* Initial border color */
-    border-radius: 10px; /* Rounded edges */
-    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset; /* Outer and inner glow */
+    border: 4px solid cyan;
+    border-radius: 10px;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
 }
 
 #upgrades {
     grid-area: cellC;
     display: grid;
     text-align: center;
+    background: url(/img/spaceouter.webp) center center/auto;
     background-color: rgb(226, 125, 9);
     border: solid black;
     padding: 5px;
-    background-image: url(/img/spaceouter.webp);
-     background-size:auto;
-    
 }
 
-
-
-
- div#upgradeDisplay{
+#upgradeDisplay {
     grid-area: cellD;
-     background-color: rgb(226, 125, 9); border:  solid black;
-     justify-content: left;
-     display: grid;
-     align-items: center;
-     background-image: url(/img/workshopV.jpg);
-     background-size:cover;
-    
-    
- }   
- #minorUpgrades {
+    display: grid;
+    align-items: center;
+    justify-content: left;
+    background-color: black;
+    background-size: cover;
+    border: 2px solid cyan;
+}
+
+#locationUpgrade {
     grid-area: cellF;
     display: grid;
-   
-    background-color: rgb(150, 75, 0); /* Slightly darker to differentiate */
+    background: url(/img/workshopH.jpg) center center/cover;
+    background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 5px;
-    background-image: url(/img/workshopH.jpg);
-    background-size:cover
-    
-    
-
 }
 
 #topMenu {
     grid-area: cellE;
     display: grid;
     text-align: center;
-    background-color: rgb(150, 75, 0); /* Slightly darker to differentiate */
+    background: url(/img/spaceouter.webp) center center/cover;
+    background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 10px;
-    background-image: url(/img/spaceouter.webp);
-    background-size:cover;
-    background-position: center;
 }
 
-
-#bottomMenu{
+#bottomMenu {
     grid-area: cellG;
-    display: grid;
+    display: flex; /* 👈 This puts them in a row */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
+    gap: 200px; /* 👈 This adds space between images */
     text-align: center;
-    background-color: rgb(150, 75, 0); /* Slightly darker to differentiate */
+    background: url(/img/bottommenu.webp) center center/cover;
+    background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 10px;
-    background-image: url(/img/bottommenu.webp);
-    background-size: cover;
 }
-#bottomMenu button{
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 15px;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    animation: pulse 2s infinite;
+.building-effect {
+    animation: pulseEffect 2s infinite;
+}
+
+@keyframes pulseEffect {
+    0%   { filter: brightness(1); }
+    50%  { filter: brightness(1.4); transform: scale(1.03); }
+    100% { filter: brightness(1); transform: scale(1); }
+}
+
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.school-effect {
+    animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+    60% { opacity: 1; }
+    70% { opacity: 0.8; }
+}
+
+.farm-effect {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+
+
+
+
+@keyframes popIn {
+    0%   { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.building-effect:not(.locked-preview) {
+    animation: popIn 0.4s ease-out, pulseEffect 2s infinite;
+}
+
+
+button.maxed {
+    background-color: #111;
+    color: rgb(13, 14, 13);
     
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    text-shadow: 0 0 5px lime;
 }
 
 
-@keyframes glitch {
-    0% { border-color: cyan; }
-    25% { border-color: magenta; }
-    50% { border-color: lime; }
-    75% { border-color: cyan; }
-    100% { border-color: cyan; }
-}
-
-#asteroide {
-    width: 100px;
-    height: 100px;
-    background-image: url('/img/asteroideclicker.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    text-indent: -9999px; /* Hide text */
-}
-#asteroide:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-}

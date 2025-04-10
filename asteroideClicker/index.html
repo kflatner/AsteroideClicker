@@ -20,7 +20,7 @@
             
         
             <div id="levelDiv">
-            <h2>Level:<br> <span id="Exp-value" >0</span></h2>
+            <h2>Locations:<br> <span id="Exp-value" >0</span></h2>
             </div>
         </div>
 
@@ -34,7 +34,7 @@
 
        
         <div id="upgradeDisplay">
-            upgrades
+            
         </div>
 
 
@@ -45,65 +45,82 @@
 
         <div id="upgrades">
             <h2>Upgrades</h2>
-            <button id="upgradeButton" onmouseover="showInfo('Buy philty Miner that can do your work! - Cost: 20')"
-            onmouseout="hideInfo()"  onclick="buyUpgradeFromModel(1)"></button>
-            <button id="upgradeButtonTwo" onclick="buyUpgradeFromModel(2)"></button>
-            <button id="upgradeButtonThree" onclick="buyUpgradeFromModel(3)"></button>
-            <button onClick="buyUpgrade(10, 100)">SpaceGuard (Cost: 100)</button>
+            <button class="upgBtn" id="upgradeButton"  onclick="buyUpgradeFromModel(1)"></button>
+            <button class="upgBtn" id="upgradeButtonTwo" onclick="buyUpgradeFromModel(2)"></button>
+            <button class="upgBtn" id="upgradeButtonThree" onclick="buyUpgradeFromModel(3)"></button>
+            <button class="upgBtn" id="upgradeButtonFour" onclick="buyUpgradeFromModel(4)"></button>
         </div>
-
+        <!-- onmouseover="showInfo('Buy philty Miner that can do your work! - Cost: 20')"
+        onmouseout="hideInfo()" -->
         
         <div id="topMenu"> 
             <h2> Asteroide Clicker 3000!</h2>
         </div> 
+
+
+        <div id="bottomMenu">
+            <img id="spaceBar" src="/img/spacebar-locked.png" data-unlocked="/img/spacebar.png" style="display: none;" width="150"   height="150">
+            <img id="spaceFactory" src="/img/spacefactory-locked.png" data-unlocked="/img/spaceFactory.png"style="display: none;" width="150" height="150">
+            <img id="spaceSchool" src="/img/spaceschool-locked.png" data-unlocked="/img/spaceSchool.png" style="display: none;" width="150" height="150">
+            <img id="spaceFarm" src="/img/spacefarm-locked.png" data-unlocked="/img/spaceFarm.png" style="display: none;" width="150" height="150">
+          </div>
+            
+               
+           
+          
+            
+            
+          
+       
+       
+
         
-        <div id="bottomMenu"  > 
-            <button id="buyFarmButton" onmouseover="showInfo('Buy Space Farm - Cost: 2000')"
-            onmouseout="hideInfo()" 
-            onclick="buyUpgradeFromModel(5)" style="justify-self: left;">Buy SpaceFarm</button>
-            <button id="buyBarButton"  onclick="buyUpgradeFromModel(6)" style="justify-self: left;">Buy SpaceBar</button>
-            <button id="buyFactoryButton"  onclick="buyUpgradeFromModel(7)" style="justify-self: left;">Buy SpaceFactory</button>
-            <button id="buySchoolButton"  onclick="buyUpgradeFromModel(8)" style="justify-self: left;">Buy SpaceSchool</button>
-        </div>
-        <div id="infoBox" style="min-height: 150px; width: 300px; background-color: rgba(128, 128, 128, 0.5); color: lightgray; justify-self: end; padding: 15px; margin-top: 10px; grid-area: cellG;" >
-             </div>
+        
+        <!-- <div id="infoBox" style="min-height: 150px; width: 300px; background-color: rgba(128, 128, 128, 0.5); color: lightgray; justify-self: end; padding: 15px; margin-top: 10px; grid-area: cellG;" >
+             </div> -->
             
 
          
             
        
             
-            <div id="minorUpgrades" style="grid-area: cellF; background-color: rgb(226, 125, 9); border: solid black; padding: 10px;">
-                <h2>Minor Upgrades</h2> 
+            <div id="locationUpgrade" style="grid-area: cellF; background-color: rgb(226, 125, 9); border: solid black; padding: 10px;">
+                <h2>Location Upgrades</h2> 
                 
-                <div><button onClick="minerMinorUpgrades()">Miner</button><br>
-                    <button onClick="drillerMinorUpgrades()">Driller</button> <br>
-                    <button onClick="spaceshipMinorUpgrades()">SpaceShip</button><br> 
-                    <button onClick="MinorBack()">Back</button> 
+                <div>
+                    <button class="upgBtn"id="buyBarButton" onclick="buyUpgradeFromModel(6)">Buy SpaceBar</button>
+                    <button class="upgBtn" id="buyFactoryButton"  onclick="buyUpgradeFromModel(7)" style="justify-self: left;">Buy SpaceFactory</button>
+                    <button class="upgBtn" id="buySchoolButton"  onclick="buyUpgradeFromModel(8)" style="justify-self: left;">Buy SpaceSchool</button>
+                    <button class="upgBtn" id="buyFarmButton" onclick="buyUpgradeFromModel(5)" style="justify-self: left;">Buy SpaceFarm</button>
                 </div> 
             
                     
                     
+
+
+                    
                
                     
-                <div id="MinorUpgradeTable" style="min-height: 150px; background-color: rgba(128, 128, 128, 0.5); color: lightgray; padding: 15px; margin-top: 10px;">
-                    No upgrades selected.
-                </div>
-                
-            
-             </div>
+           
            
            
         
     </div>
 
-     
-    <script src="view.js" >  </script>  
+     <!-- Model -->
+     <script src="model/model.js" >  </script>  
+   
+       <!-- Controller -->
+       <script src="Controller/clicker.controller.js" >  </script>  
+       <script src="Controller/upgrade.controller.js" >  </script>  
+       <script src="Controller/locationUpgradeController.js" >  </script>  
+          <!-- View -->
+      <script src="View/view.js"></script>  
+      <script src="View/locationUpgradesView.js"></script>  
+      <script src="View/upgrade.view.js"></script>  
+       
+      
 
-    <script src="model.js" >  </script>  
-    <script src="upgrade.controller.js" >  </script>  
-    <script src="clicker.controller.js" >  </script>  
-    <script src="upgrade.view.js" >  </script>  
     
 
 

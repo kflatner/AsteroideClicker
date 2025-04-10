@@ -4,16 +4,25 @@ function updateUI() {
 
     updateUpgradeButtons();
     updateUpgradeDisplay();
+    
    
 }
-function showInfo(text) {
-    document.getElementById("infoBox").innerText = text;
-    
+function updateLocations(){
+    document.getElementById("score-value").textContent = model.data.clickCount;
+
+    updateUpgradeButtons();
+   
+
 }
 
-function hideInfo() {
-    document.getElementById("infoBox").innerText = "Hover over an upgrade to see details.";
-}
+// function showInfo(text) {
+//     document.getElementById("infoBox").innerText = text;
+    
+// }
+
+// function hideInfo() {
+//     document.getElementById("infoBox").innerText = "Hover over an upgrade to see details.";
+// }
 
 
 // function updateUI() {
