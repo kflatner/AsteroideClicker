@@ -26,7 +26,7 @@ upgrades: [
     interval: 2000,
     multiplier: 1,
     level:0,
-    image: '/img/miner.png.'
+    image: 'img/miner.png.'
 },
 {
     id: 2,
@@ -35,7 +35,7 @@ upgrades: [
     interval: 1500,
     multiplier: 2,
     level:0,
-    image: '/img/driller.png'
+    image: 'img/driller.png'
 },
 {
     id:3,
@@ -44,7 +44,7 @@ upgrades: [
     interval: 1250,
     multiplier: 3,
     level:0,
-    image: '/img/spaceminer.png'
+    image: 'img/spaceminer.png'
 },
 {
     id:4,
@@ -60,7 +60,7 @@ upgrades: [
     interval: 1,
     multiplier: 3,
     level:0,
-    image: '/img/spacefarm.png',
+    image: 'img/spacefarm.png',
     unlockTargetId: 'spacefarm',
     locked: true  
 },
@@ -71,7 +71,7 @@ upgrades: [
     interval: 750,
     multiplier: 3,
     level:0,
-    image: '/img/Spacebar.png',
+    image: 'img/Spacebar.png',
     unlockTargetId: 'spacebar' ,
     locked: true ,
     requires: [4]
@@ -83,7 +83,7 @@ upgrades: [
     interval: 500,
     multiplier: 3,
     level:0,
-    image: '/img/Spacefactory.png',
+    image: 'img/Spacefactory.png',
     unlockTargetId: 'spacefactory' ,
     locked: true 
 },
@@ -94,7 +94,7 @@ upgrades: [
     interval: 500,
     multiplier: 3,
     level:0,
-    image: '/img/Spaceschool.png',
+    image: 'img/Spaceschool.png',
     unlockTargetId: 'spaceschool' ,
     locked: true 
 },

@@ -6,7 +6,7 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
     color: white;
-    background: url(/img/game.webp) no-repeat center center/cover;
+    background: url(img/game.webp) no-repeat center center/cover;
     display: grid;
     align-items: center;
     justify-content: center;
@@ -68,7 +68,7 @@ button.disabled {
 #asteroide {
     width: 100px;
     height: 100px;
-    background: url('/img/asteroideclicker.png') no-repeat center center/cover;
+    background: url('img/asteroideclicker.png') no-repeat center center/cover;
    
     border: none;
     cursor: pointer;
@@ -134,7 +134,7 @@ button.disabled {
 /* 📦 GRID AREAS */
 #score {
     grid-area: cellA;
-    background: url(/img/spaceouter.webp) center center/cover;
+    background: url(img/spaceouter.webp) center center/cover;
     background-color: rgb(226, 125, 9);
     border: solid black;
     padding: 5px;
@@ -160,7 +160,7 @@ span#score-value {
     grid-area: cellC;
     display: grid;
     text-align: center;
-    background: url(/img/spaceouter.webp) center center/auto;
+    background: url(img/spaceouter.webp) center center/auto;
     background-color: rgb(226, 125, 9);
     border: solid black;
     padding: 5px;
@@ -179,7 +179,7 @@ span#score-value {
 #locationUpgrade {
     grid-area: cellF;
     display: grid;
-    background: url(/img/workshopH.jpg) center center/cover;
+    background: url(img/workshopH.jpg) center center/cover;
     background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 5px;
@@ -189,7 +189,7 @@ span#score-value {
     grid-area: cellE;
     display: grid;
     text-align: center;
-    background: url(/img/spaceouter.webp) center center/cover;
+    background: url(img/spaceouter.webp) center center/cover;
     background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 10px;
@@ -202,7 +202,7 @@ span#score-value {
     align-items: center; /* Align vertically */
     gap: 200px; /* 👈 This adds space between images */
     text-align: center;
-    background: url(/img/bottommenu.webp) center center/cover;
+    background: url(img/bottommenu.webp) center center/cover;
     background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 10px;
