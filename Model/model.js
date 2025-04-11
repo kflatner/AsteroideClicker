@@ -26,7 +26,7 @@ upgrades: [
     interval: 2000,
     multiplier: 1,
     level:0,
-    image: 'img/miner.png.'
+    image: 'img/miner.png.png'
 },
 {
     id: 2,
@@ -49,7 +49,7 @@ upgrades: [
 {
     id:4,
     name: 'SpaceLocation',
-    cost:500,
+    cost:2,
     maxLevel: 4,
     level:0,
 },
@@ -61,7 +61,7 @@ upgrades: [
     multiplier: 3,
     level:0,
     image: 'img/spacefarm.png',
-    unlockTargetId: 'spacefarm',
+    unlockTargetId: 'spaceFarm',
     locked: true  
 },
 {
@@ -72,7 +72,7 @@ upgrades: [
     multiplier: 3,
     level:0,
     image: 'img/Spacebar.png',
-    unlockTargetId: 'spacebar' ,
+    unlockTargetId: 'spaceBar' ,
     locked: true ,
     requires: [4]
 },
