@@ -56,7 +56,7 @@ upgrades: [
 {
     id:5,
     name: 'SpaceFarm',
-    cost:1000,
+    cost:2000,
     interval: 1,
     multiplier: 3,
     level:0,
@@ -71,7 +71,7 @@ upgrades: [
     interval: 750,
     multiplier: 3,
     level:0,
-    image: 'img/Spacebar.png',
+    image: 'img/SpaceBar.png',
     unlockTargetId: 'spaceBar' ,
     locked: true ,
     requires: [4]
@@ -79,7 +79,7 @@ upgrades: [
 {
     id:7,
     name: 'SpaceFactory',
-    cost:1500,
+    cost:1250,
     interval: 500,
     multiplier: 3,
     level:0,
