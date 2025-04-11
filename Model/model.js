@@ -71,7 +71,7 @@ upgrades: [
     interval: 750,
     multiplier: 3,
     level:0,
-    image: 'img/SpaceBar.png',
+    image: 'img/spacebar.png',
     unlockTargetId: 'spaceBar' ,
     locked: true ,
     requires: [4]
@@ -83,7 +83,7 @@ upgrades: [
     interval: 500,
     multiplier: 3,
     level:0,
-    image: 'img/Spacefactory.png',
+    image: 'img/spacefactory.png',
     unlockTargetId: 'spacefactory' ,
     locked: true 
 },
@@ -94,7 +94,7 @@ upgrades: [
     interval: 500,
     multiplier: 3,
     level:0,
-    image: 'img/Spaceschool.png',
+    image: 'img/spaceschool.png',
     unlockTargetId: 'spaceschool' ,
     locked: true 
 },
