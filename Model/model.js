@@ -56,8 +56,8 @@ upgrades: [
 {
     id:5,
     name: 'SpaceFarm',
-    cost:2,
-    interval: 1000,
+    cost:1000,
+    interval: 1,
     multiplier: 3,
     level:0,
     image: '/img/spacefarm.png',
@@ -71,7 +71,7 @@ upgrades: [
     interval: 750,
     multiplier: 3,
     level:0,
-    image: '/img/SpaceBar.png',
+    image: '/img/Spacebar.png',
     unlockTargetId: 'spaceBar' ,
     locked: true ,
     requires: [4]
@@ -79,22 +79,22 @@ upgrades: [
 {
     id:7,
     name: 'SpaceFactory',
-    cost:2,
+    cost:1500,
     interval: 500,
     multiplier: 3,
     level:0,
-    image: '/img/SpaceFactory.png',
+    image: '/img/Spacefactory.png',
     unlockTargetId: 'spaceFactory' ,
     locked: true 
 },
 {
     id:8,
     name: 'SpaceSchool',
-    cost:2,
+    cost:1500,
     interval: 500,
     multiplier: 3,
     level:0,
-    image: '/img/SpaceSchool.png',
+    image: '/img/Spaceschool.png',
     unlockTargetId: 'spaceSchool' ,
     locked: true 
 },
