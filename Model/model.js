@@ -84,7 +84,7 @@ upgrades: [
     multiplier: 3,
     level:0,
     image: 'img/spacefactory.png',
-    unlockTargetId: 'spacefactory' ,
+    unlockTargetId: 'spaceFactory' ,
     locked: true 
 },
 {
@@ -95,7 +95,7 @@ upgrades: [
     multiplier: 3,
     level:0,
     image: 'img/spaceschool.png',
-    unlockTargetId: 'spaceschool' ,
+    unlockTargetId: 'spaceSchool' ,
     locked: true 
 },
 ]
