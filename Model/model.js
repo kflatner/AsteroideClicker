@@ -49,7 +49,7 @@ upgrades: [
 {
     id:4,
     name: 'SpaceLocation',
-    cost:2,
+    cost:500,
     maxLevel: 4,
     level:0,
 },
@@ -67,7 +67,7 @@ upgrades: [
 {
     id:6,
     name: 'SpaceBar',
-    cost:2,
+    cost:750,
     interval: 750,
     multiplier: 3,
     level:0,
