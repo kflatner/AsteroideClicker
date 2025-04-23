@@ -1,268 +1,283 @@
-/* 🌌 GENERAL RESET & BODY */
-body, html {
+/* 🌌 GLOBAL THEME VARIABLES */
+:root {
+    --bg-dark: rgba(0, 0, 0, 0.7);
+    --bg-accent: rgb(226, 125, 9);
+    --text-color: white;
+    --glow-color: cyan;
+    --glow-hover: rgba(255, 255, 0, 0.8);
+    --highlight: lime;
+  }
+  
+  /* 🌌 GENERAL RESET & BODY */
+  body, html {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    color: white;
-    background: url(img/game.webp) no-repeat center center/cover;
+    color: var(--text-color);
+    background: url('img/game.webp') no-repeat center center/cover;
     display: grid;
     align-items: center;
     justify-content: center;
-}
-
-/* 🧱 MAIN GRID LAYOUT */
-.container {
+  }
+  
+  /* 🧱 MAIN GRID LAYOUT */
+  .container {
     display: grid;
     height: 100vh;
     width: 100vw;
-    margin: 0;
-    padding: 0;
     grid-template-columns: 2fr 3fr 3fr 3fr 2fr;
     grid-template-rows: 1fr 2fr 2fr 1fr;
     grid-template-areas:
-        "cellA cellE cellE cellE cellC"
-        "cellA cellB cellB cellB cellC"
-        "cellD cellB cellB cellB cellF"
-        "cellD cellG cellG cellG cellF";
-}
-
-/* 💡 BUTTON BASE STYLES */
-button {
+      "cellA cellE cellE cellE cellC"
+      "cellA cellB cellB cellB cellC"
+      "cellD cellB cellB cellB cellF"
+      "cellD cellG cellG cellG cellF";
+  }
+  
+  /* ✨ UTILITY CLASSES */
+  .glow-border {
+    border: 3px solid var(--glow-color);
+    box-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color) inset;
+  }
+  
+  .glitch-border {
+    animation: glitch 0.5s infinite alternate;
+  }
+  
+  .btn-pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  /* 💡 BUTTON BASE STYLES */
+  button {
     font-size: 15px;
     padding: 10px 20px;
     margin: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: background-color 0.3s;
-}
-
-button:active {
+    color: var(--text-color);
+    background-color: var(--bg-dark);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:active {
     transform: scale(0.9);
-}
-
-.upgBtn:hover {
+  }
+  
+  .upgBtn:hover {
     background-color: rgba(214, 98, 3, 0.2);
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
-}
-
-button:disabled,
-button.disabled {
+    box-shadow: 0 0 15px var(--glow-hover);
+  }
+  
+  button:disabled,
+  button.disabled {
     background-color: rgba(255, 255, 255, 0.1);
     color: #999;
     cursor: not-allowed;
     border: 1px solid #555;
     filter: grayscale(60%);
-}
-
-/* 🚀 CENTER CLICK BUTTON */
-
-
-
-
-/* 💫 ASTEROID BUTTON IMAGE */
-#asteroide {
+  }
+  
+  button.maxed {
+    background-color: #111;
+    color: #0d0e0d;
+    text-shadow: 0 0 5px var(--highlight);
+  }
+  
+  /* 🚀 ASTEROID BUTTON */
+  #asteroide {
     width: 100px;
     height: 100px;
     background: url('img/asteroideclicker.png') no-repeat center center/cover;
-   
     border: none;
     cursor: pointer;
     text-indent: -9999px;
-}
-#asteroide:active {
+    animation: pulse 2s infinite;
+  }
+  #asteroide:hover {
+    transform: scale(1.3);
+    filter: brightness(1.3);
+  }
+  #asteroide:active {
     transform: scale(0.92);
     filter: brightness(0.9);
-}
-#asteroide:hover {
-    transform: scale(2.9); /* Slightly larger on hover */
-    filter: brightness(1.3);
-}
-
-
-
-
-
-
-
-/* 📺 UPGRADE BUTTONS (in UPGRADE AREA) */
-#upgrades button,
-#bottomMenu button {
-    animation: pulse 2s infinite;
-}
-
-/* 🔄 ANIMATIONS */
-
-
-@keyframes glitch {
+  }
+  #asteroide.clicked {
+    animation: pop 0.2s ease-in-out;
+  }
+  
+  /* 🔁 ANIMATIONS */
+  @keyframes glitch {
     0% { border-color: cyan; }
     25% { border-color: magenta; }
     50% { border-color: lime; }
     75% { border-color: cyan; }
     100% { border-color: cyan; }
-}
-@keyframes pulse {
+  }
+  
+  @keyframes pulse {
     0%   { transform: scale(1); }
     50%  { transform: scale(1.05); }
     100% { transform: scale(1); }
-}
-
-@keyframes pop {
+  }
+  
+  @keyframes pop {
     0%   { transform: scale(1); }
     50%  { transform: scale(1.2); }
     100% { transform: scale(1); }
-}
-
-/* 🚀 Always pulsing */
-#asteroide {
-    animation: pulse 2s infinite;
-}
-
-/* 💥 Triggered on click */
-#asteroide.clicked {
-    animation: pop 0.2s ease-in-out;
-}
-
-
-
-
-
-/* 📦 GRID AREAS */
-#score {
+  }
+  
+  @keyframes pulseEffect {
+    0%   { filter: brightness(1); }
+    50%  { filter: brightness(1.4); transform: scale(1.03); }
+    100% { filter: brightness(1); transform: scale(1); }
+  }
+  
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+    60% { opacity: 1; }
+    70% { opacity: 0.8; }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes popIn {
+    0%   { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* 📦 GRID CELLS */
+  #score {
     grid-area: cellA;
-    background: url(img/spaceouter.webp) center center/cover;
-    background-color: rgb(226, 125, 9);
+    background: url('img/spaceouter.webp') center center/cover;
+    background-color: var(--bg-accent);
     border: solid black;
     padding: 5px;
-}
-
-span#score-value {
-    border: 3px solid cyan;
-    animation: glitch 0.5s infinite alternate;
-}
-
-#center-screen {
+  }
+  
+  #center-screen {
     grid-area: cellB;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 4px solid cyan;
     border-radius: 10px;
-    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
-}
-
-#upgrades {
+    box-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color) inset;
+    border: 4px solid var(--glow-color);
+  }
+  
+  #upgrades {
     grid-area: cellC;
     display: grid;
     text-align: center;
-    background: url(img/spaceouter.webp) center center/auto;
-    background-color: rgb(226, 125, 9);
+    background: url('img/spaceouter.webp') center center/auto;
+    background-color: var(--bg-accent);
     border: solid black;
     padding: 5px;
-}
-
-#upgradeDisplay {
+  }
+  
+  #upgradeDisplay {
     grid-area: cellD;
     display: grid;
     align-items: center;
     justify-content: left;
     background-color: black;
-    background-size: cover;
-    border: 2px solid cyan;
-}
-
-#locationUpgrade {
+    border: 2px solid var(--glow-color);
+    padding: 10px;
+  }
+  
+  #locationUpgrade {
     grid-area: cellF;
     display: grid;
-    background: url(img/workshopH.jpg) center center/cover;
+    background: url('img/workshopH.jpg') center center/cover;
     background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 5px;
-}
-
-#topMenu {
+  }
+  
+  #topMenu {
     grid-area: cellE;
     display: grid;
     text-align: center;
-    background: url(img/spaceouter.webp) center center/cover;
+    background: url('img/spaceouter.webp') center center/cover;
     background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 10px;
-}
-
-#bottomMenu {
+  }
+  
+  #bottomMenu {
     grid-area: cellG;
-    display: flex; /* 👈 This puts them in a row */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Align vertically */
-    gap: 200px; /* 👈 This adds space between images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
     text-align: center;
-    background: url(img/bottommenu.webp) center center/cover;
+    background: url('img/bottommenu.webp') center center/cover;
     background-color: rgb(150, 75, 0);
     border: solid black;
     padding: 10px;
-}
-.building-effect {
-    animation: pulseEffect 2s infinite;
-}
-
-@keyframes pulseEffect {
-    0%   { filter: brightness(1); }
-    50%  { filter: brightness(1.4); transform: scale(1.03); }
-    100% { filter: brightness(1); transform: scale(1); }
-}
-
-
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.school-effect {
-    animation: flicker 1.5s infinite;
-}
-
-@keyframes flicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-    60% { opacity: 1; }
-    70% { opacity: 0.8; }
-}
-
-.farm-effect {
-    animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-
-
-
-
-@keyframes popIn {
-    0%   { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-.building-effect:not(.locked-preview) {
+  }
+  
+  /* 🏗️ SPECIAL EFFECTS */
+  .building-effect:not(.locked-preview) {
     animation: popIn 0.4s ease-out, pulseEffect 2s infinite;
-}
-
-
-button.maxed {
-    background-color: #111;
-    color: rgb(13, 14, 13);
-    
-    text-shadow: 0 0 5px lime;
-}
-
-
+  }
+  
+  .school-effect {
+    animation: flicker 1.5s infinite;
+  }
+  
+  .farm-effect {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  .locked-preview {
+    filter: grayscale(100%) brightness(0.3);
+    opacity: 0.6;
+  }
+  
+  /* 🧱 UPGRADE CARDS */
+  .upgrade-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  .upgrade-item:hover {
+    transform: scale(1.03);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .eff-score {
+    color: lime;
+    font-weight: bold;
+  }
+  
+  /* 📱 RESPONSIVE (optional for mobile) */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "cellE"
+        "cellA"
+        "cellB"
+        "cellC"
+        "cellD"
+        "cellF"
+        "cellG";
+    }
+  
+    #bottomMenu {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  
