@@ -1,6 +1,7 @@
 function clicker() {
     model.data.clickCount += model.data.multiplier;
     updateUI();
+    saveGame();
 }
 const asteroideButton = document.getElementById("asteroide");
 

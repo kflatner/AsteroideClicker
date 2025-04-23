@@ -84,7 +84,15 @@ if (upgrade.name !== 'SpaceLocation' && upgrade.unlockTargetId) {
         showInfo(`Not enough cash for ${upgrade.name}!`);
     }
 }
+//flytte disse 2 !
 
+function saveGame() {
+    localStorage.setItem('clickerGameSave', JSON.stringify(model));
+  }
 
-
+  function resetGame() {
+    localStorage.removeItem('clickerGameSave');
+    location.reload(); // Refresh page to restart with default
+  }
+  
 
