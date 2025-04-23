@@ -90,7 +90,7 @@ const defaultModel = {
         }
       ],
       seals: [
-        { id: 101, name: 'First Seal', cost: 3, locked: false },
+        { id: 101, name: 'First Seal', cost: 5000, locked: false },
         { id: 102, name: 'Second Seal', cost: 100000, locked: true },
         { id: 103, name: 'Third Seal', cost: 1000000, locked: true },
         { id: 104, name: 'Fourth Seal', cost: 5000000, locked: true }
