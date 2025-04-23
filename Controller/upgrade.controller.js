@@ -3,6 +3,21 @@ function buyUpgradeFromModel(id) {
     const upgrade = model.data.upgrades.find(up => up.id === id);
     if (!upgrade) return;
 
+    if (upgrade.id >= 101 && upgrade.id <= 104) {
+        upgrade.locked = false;
+    
+        const nextSeal = model.data.upgrades.find(u => u.id === upgrade.id + 1);
+        if (nextSeal && nextSeal.locked) {
+            nextSeal.locked = false;
+        }
+    
+        const button = document.getElementById(`sealButton${upgrade.id}`);
+        if (button) {
+            button.classList.add('bought-seal');
+            button.disabled = true;
+        }
+    }
+
     // 🔒 Prevent buying if upgrade is locked
     if (upgrade.locked) {
         showInfo(`${upgrade.name} is not unlocked yet!`);
@@ -77,6 +92,8 @@ if (upgrade.name !== 'SpaceLocation' && upgrade.unlockTargetId) {
             unlockBuilding('spaceFarm');
         }
     }
+   
+    
     
 
         updateUI();
@@ -95,4 +112,15 @@ function saveGame() {
     location.reload(); // Refresh page to restart with default
   }
   
-
+  function initializeAutoUpgrades() {
+    model.data.upgrades.forEach(upgrade => {
+      if (upgrade.level > 0 && upgrade.interval && upgrade.multiplier) {
+        setInterval(() => {
+          model.data.clickCount += upgrade.multiplier;
+          updateUI();
+          saveGame();
+        }, upgrade.interval);
+      }
+    });
+  }
+  

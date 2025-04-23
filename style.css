@@ -160,6 +160,9 @@
     background-color: var(--bg-accent);
     border: solid black;
     padding: 5px;
+    display:grid;
+    text-align: center;
+
   }
   
   #center-screen {
@@ -280,4 +283,9 @@
       gap: 20px;
     }
   }
-  
+  .bought-seal {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 10px yellow;
+}

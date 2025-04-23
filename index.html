@@ -12,16 +12,31 @@
     </style>
 </head>
 
-<body onload="updateUI();">
+<body onload="updateUI();
+initializeAutoUpgrades?.();
+applyUnlockVisuals?.();
+updateSealButtons?.();">
     <div class="container">
         <div id="score" style="grid-area: cellA; 
         border: solid black;">
             <h2>Score: <br> <span id="score-value" >0</span></h2>
             
-        
-            <div id="levelDiv">
-            <h2>Locations:<br> <span id="Exp-value" >0</span></h2>
-            <button onclick="resetGame()">Reset Game</button>
+            
+            <div id="sealButtons">
+                <button id="sealButton101" onclick="buySeal(101)">Buy First Seal</button>
+                <button id="sealButton102" onclick="buySeal(102)">Buy Second Seal</button>
+                <button id="sealButton103" onclick="buySeal(103)">Buy Third Seal</button>
+                <button id="sealButton104" onclick="buySeal(104)">Buy Fourth Seal</button>
+              </div>
+              
+            
+
+                <button onclick="resetGame()">Reset Game</button>
+                  
+            
+            <div id="sealdiv">
+            
+           
 
             </div>
         </div>
@@ -120,6 +135,8 @@
       <script src="View/view.js"></script>  
       <script src="View/locationUpgradesView.js"></script>  
       <script src="View/upgrade.view.js"></script>  
+      <script src="View/sealView.js"></script>  
+      
        
       
 
@@ -127,7 +144,7 @@
 
 
 
-
+   
 
 
 

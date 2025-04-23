@@ -1,4 +1,3 @@
-// Default model structure
 const defaultModel = {
     app: {},
     inputs: {
@@ -89,11 +88,24 @@ const defaultModel = {
           unlockTargetId: 'spaceSchool',
           locked: true
         }
+      ],
+      seals: [
+        { id: 101, name: 'First Seal', cost: 3, locked: false },
+        { id: 102, name: 'Second Seal', cost: 100000, locked: true },
+        { id: 103, name: 'Third Seal', cost: 1000000, locked: true },
+        { id: 104, name: 'Fourth Seal', cost: 5000000, locked: true }
       ]
     }
   };
   
-  // Try to load from localStorage
   const savedModel = localStorage.getItem('clickerGameSave');
   const model = savedModel ? JSON.parse(savedModel) : defaultModel;
   
+  if (!model.data.seals) {
+    model.data.seals = [
+      { id: 101, name: 'First Seal', cost: 5000, locked: false },
+      { id: 102, name: 'Second Seal', cost: 100000, locked: true },
+      { id: 103, name: 'Third Seal', cost: 1000000, locked: true },
+      { id: 104, name: 'Fourth Seal', cost: 5000000, locked: true }
+    ];
+  }

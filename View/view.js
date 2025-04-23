@@ -4,6 +4,8 @@ function updateUI() {
 
     updateUpgradeButtons();
     updateUpgradeDisplay();
+    updateSealButtons();
+    updateSealButtons();
     
    
 }
