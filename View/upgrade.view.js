@@ -41,13 +41,13 @@ function updateUpgradeButtons() {
         } else {
             button.innerText = `Buy ${upgrade.name} (Cost: ${upgrade.cost})`;
 
-            // 🔒 Check required upgrades
+            
             const hasRequirements = !upgrade.requires || upgrade.requires.every(reqId => {
                 const reqUpgrade = model.data.upgrades.find(u => u.id === reqId);
                 return reqUpgrade && reqUpgrade.level > 0;
             });
 
-            // ✅ Enable if affordable and unlocked
+            
             if (model.data.clickCount >= upgrade.cost && hasRequirements && !upgrade.locked) {
                 button.disabled = false;
                 button.classList.remove("disabled");

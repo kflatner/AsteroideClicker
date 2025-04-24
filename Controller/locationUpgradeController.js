@@ -3,7 +3,7 @@ function unlockBuilding(id) {
     if (target) {
         const realUpgrade = model.data.upgrades.find(u => u.unlockTargetId === id);
         if (realUpgrade) {
-            realUpgrade.locked = false; // ✅ this unlocks it
+            realUpgrade.locked = false; 
             saveGame(); 
         }
     }

@@ -18,7 +18,6 @@ function buyUpgradeFromModel(id) {
         }
     }
 
-    // 🔒 Prevent buying if upgrade is locked
     if (upgrade.locked) {
         showInfo(`${upgrade.name} is not unlocked yet!`);
         return;
@@ -36,21 +35,21 @@ function buyUpgradeFromModel(id) {
         upgrade.level++;
         upgrade.cost *= 2;
 
-        // 🛠️ Add auto-mining if applicable
+        
         if (upgrade.interval && upgrade.multiplier) {
             setInterval(() => {
                 model.data.clickCount += upgrade.multiplier;
                 updateUI();
             }, upgrade.interval);
         }
-       // Only run this block if NOT a SpaceLocation
+    
 if (upgrade.name !== 'SpaceLocation' && upgrade.unlockTargetId) {
     const target = document.getElementById(upgrade.unlockTargetId);
     if (target) {
         const realSrc = target.getAttribute('data-unlocked');
 
         if (realSrc) {
-            target.src = realSrc + '?v=' + Date.now(); // ✅ safe to use
+            target.src = realSrc + '?v=' + Date.now(); 
         } else {
             console.warn(`🟡 No data-unlocked on ${target.id} (maybe it's a location preview?)`);
         }
@@ -58,7 +57,7 @@ if (upgrade.name !== 'SpaceLocation' && upgrade.unlockTargetId) {
         target.style.display = 'inline-block';
         target.classList.add("building-effect");
 
-        // Optional effects
+        
         if (upgrade.name === 'SpaceBar') {
             target.classList.add("bar-effect");
         } else if (upgrade.name === 'SpaceSchool') {
@@ -73,7 +72,7 @@ if (upgrade.name !== 'SpaceLocation' && upgrade.unlockTargetId) {
 
         
 
-     // 🌌 Special case: buying SpaceLocation reveals locked buildings
+ 
      if (upgrade.name === 'SpaceLocation') {
         if (upgrade.level === 1) {
             showLockedImage('spaceBar');
@@ -109,7 +108,7 @@ function saveGame() {
 
   function resetGame() {
     localStorage.removeItem('clickerGameSave');
-    location.reload(); // Refresh page to restart with default
+    location.reload(); 
   }
   
   function initializeAutoUpgrades() {
